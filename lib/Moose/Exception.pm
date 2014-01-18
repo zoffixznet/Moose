@@ -24,7 +24,9 @@ has 'message' => (
 use overload
     '""' => sub {
         my $self = shift;
-        return $self->trace->as_string;
+        my $bottom_frame = $self->trace->prev_frame()->as_string();
+        my $message = $self->message;
+        return $message. " at \n". $bottom_frame."\n";
 };
 
 sub _build_trace {
