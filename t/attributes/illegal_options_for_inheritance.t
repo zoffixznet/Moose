@@ -23,10 +23,10 @@ use Test::Fatal;
     extends 'Foo';
 
     ::is( ::exception { has '+foo' => (is => 'rw') }, undef, "can override is" );
-    ::like( ::exception { has '+foo' => (reader => 'bar') }, qr/illegal/, "can't override reader" );
+    ::like( ::exception { has '+foo' => (reader => 'bar') }, qr/Illegal/, "can't override reader" );
     ::is( ::exception { has '+foo' => (clearer => 'baz') }, undef, "can override unspecified things" );
 
-    ::like( ::exception { has '+bar' => (clearer => 'quux') }, qr/illegal/, "can't override clearer" );
+    ::like( ::exception { has '+bar' => (clearer => 'quux') }, qr/Illegal/, "can't override clearer" );
     ::is( ::exception { has '+bar' => (predicate => 'has_bar') }, undef, "can override unspecified things" );
 }
 

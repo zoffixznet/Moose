@@ -138,7 +138,7 @@ like( exception {
         attribute_metaclass => 'Baz::Meta::Attribute',
         method_metaclass    => 'Baz::Meta::Method',
     );
-}, qr/compatible/ );
+}, qr/\QAttribute (class) does not pass the type constraint because: Validation failed for 'Class::MOP::Class' with value Bar::Meta::Method/ );
 
 {
     package Quuux::Meta::Attribute;
